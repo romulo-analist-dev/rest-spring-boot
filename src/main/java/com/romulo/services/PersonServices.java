@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.romulo.data.vo.v1.PersonVO;
+import com.romulo.data.vo.v2.PersonVOV2;
 import com.romulo.exceptions.ResourceNotFoundException;
 import com.romulo.mapper.DozerMapper;
+import com.romulo.mapper.custom.PersonMapper;
 import com.romulo.model.Person;
 import com.romulo.repositories.PersonRepository;
 
@@ -19,6 +21,9 @@ public class PersonServices {
 
 	@Autowired
 	PersonRepository repository;
+
+	@Autowired
+	PersonMapper mapper;
 
 	public List<PersonVO> findAll() {
 		logger.info("Finding all people...");
@@ -40,6 +45,15 @@ public class PersonServices {
 		var entity = DozerMapper.parseObject(person, Person.class);
 		
 		var vo = DozerMapper.parseObject(repository.save(entity), PersonVO.class);
+		return vo;
+	}
+	
+	public PersonVOV2 createV2(PersonVOV2 person) {
+		logger.info("Creating one person with V2...");
+		
+		var entity = mapper.convertVOToEntity(person);
+		
+		var vo = mapper.convertEntityToVO(repository.save(entity));
 		return vo;
 	}
 
