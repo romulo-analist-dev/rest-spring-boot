@@ -11,10 +11,10 @@ import io.swagger.v3.oas.models.info.License;
 public class OpenApiConfig {
 
 	@Bean
-	public OpenAPI customOpenApi() {
+	OpenAPI customOpenApi() {
 		return new OpenAPI()
 				.info(new Info()
-						.title("RESTful API with Java 18 and Spring Boot 3")
+						.title("RESTful API with Java 19 and Spring Boot 3.0.1")
 						.version("v1")
 						.description("Alguma descrição sobre a API")
 						.termsOfService("https://github.com/romulo-analist-dev/rest-spring-boot")
