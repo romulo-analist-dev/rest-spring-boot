@@ -1,7 +1,7 @@
 package com.romulo.data.vo.v1;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import org.springframework.hateoas.RepresentationModel;
@@ -21,7 +21,7 @@ public class BookVO extends RepresentationModel<BookVO> implements Serializable 
 
 	private String author;
 
-	private Date launchDate;
+	private LocalDate launchDate;
 
 	private Double price;
 
@@ -46,11 +46,11 @@ public class BookVO extends RepresentationModel<BookVO> implements Serializable 
 		this.author = author;
 	}
 
-	public Date getLaunchDate() {
+	public LocalDate getLaunchDate() {
 		return launchDate;
 	}
 
-	public void setLaunchDate(Date launchDate) {
+	public void setLaunchDate(LocalDate launchDate) {
 		this.launchDate = launchDate;
 	}
 
