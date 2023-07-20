@@ -1,15 +1,10 @@
 package com.romulo.mapper.custom;
 
-import java.util.Date;
-
 import org.springframework.stereotype.Service;
-
-import com.romulo.data.vo.v2.PersonVOV2;
-import com.romulo.model.Person;
 
 @Service
 public class PersonMapper {
-	
+	/*
 	public PersonVOV2 convertEntityToVO(Person person) {
 		PersonVOV2 vo = new PersonVOV2();
 		
@@ -34,4 +29,5 @@ public class PersonMapper {
 		
 		return person;
 	}
+	*/
 }

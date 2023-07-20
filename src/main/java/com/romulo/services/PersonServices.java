@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import com.romulo.controllers.PersonController;
 import com.romulo.data.vo.v1.PersonVO;
-import com.romulo.data.vo.v2.PersonVOV2;
 import com.romulo.exceptions.RequiredObjectIsNullException;
 import com.romulo.exceptions.ResourceNotFoundException;
 import com.romulo.mapper.DozerMapper;
@@ -65,15 +64,6 @@ public class PersonServices {
 
 		vo.add(linkTo(methodOn(PersonController.class).findById(vo.getKey())).withSelfRel());
 
-		return vo;
-	}
-
-	public PersonVOV2 createV2(PersonVOV2 person) {
-		logger.info("Creating one person with V2...");
-
-		var entity = mapper.convertVOToEntity(person);
-
-		var vo = mapper.convertEntityToVO(repository.save(entity));
 		return vo;
 	}
 
