@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  mysql:
+    container_name: mysql_local
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - 3306:3306
+    networks:
+      - mysql_network
+
+networks:
+  mysql_network:
