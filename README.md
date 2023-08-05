@@ -70,3 +70,4 @@ Em breve documentarei aqui, vamo com calma que ainda não tô com a vida ganha.
 <h1 align="left">
     Feedback e contato
 </h1>
+<img width="24" src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg"/><a href="https://www.linkedin.com/in/rômulo-c-041453b0"> Rômulo Cavalcante</a>
