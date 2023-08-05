@@ -29,31 +29,32 @@ public class User implements UserDetails, Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@Column(name = "user_name", unique = true)
-	private String userName;
-
-	@Column(name = "full_name")
+	
+	@Column(name="user_name", unique=true)
+	private String username;
+	
+	@Column(name="full_name")
 	private String fullName;
-
-	@Column(name = "password")
+	
+	@Column(name="password")
 	private String password;
-
+	
 	@Column(name = "account_non_expired")
 	private Boolean accountNonExpired;
-
+	
 	@Column(name = "account_non_locked")
 	private Boolean accountNonLocked;
-
+	
 	@Column(name = "credentials_non_expired")
 	private Boolean credentialsNonExpired;
-
+	
 	@Column(name = "enabled")
 	private Boolean enabled;
-
+	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "user_permission", joinColumns = { @JoinColumn(name = "id_user") }, inverseJoinColumns = {
-			@JoinColumn(name = "id_permission") })
+	@JoinTable(name = "user_permission", joinColumns = {@JoinColumn (name = "id_user")},
+		inverseJoinColumns = {@JoinColumn (name = "id_permission")}
+	)
 	private List<Permission> permissions;
 
 	public User() {
@@ -80,7 +81,7 @@ public class User implements UserDetails, Serializable {
 
 	@Override
 	public String getUsername() {
-		return this.userName;
+		return this.username;
 	}
 
 	@Override
@@ -100,7 +101,7 @@ public class User implements UserDetails, Serializable {
 
 	@Override
 	public boolean isEnabled() {
-		return this.isEnabled();
+		return this.enabled;
 	}
 
 	public Long getId() {
@@ -111,12 +112,8 @@ public class User implements UserDetails, Serializable {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getFullName() {
@@ -174,7 +171,7 @@ public class User implements UserDetails, Serializable {
 	@Override
 	public int hashCode() {
 		return Objects.hash(accountNonExpired, accountNonLocked, credentialsNonExpired, enabled, fullName, id, password,
-				permissions, userName);
+				permissions, username);
 	}
 
 	@Override
@@ -191,6 +188,6 @@ public class User implements UserDetails, Serializable {
 				&& Objects.equals(credentialsNonExpired, other.credentialsNonExpired)
 				&& Objects.equals(enabled, other.enabled) && Objects.equals(fullName, other.fullName)
 				&& Objects.equals(id, other.id) && Objects.equals(password, other.password)
-				&& Objects.equals(permissions, other.permissions) && Objects.equals(userName, other.userName);
+				&& Objects.equals(permissions, other.permissions) && Objects.equals(username, other.username);
 	}
 }
